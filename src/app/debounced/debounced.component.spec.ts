@@ -14,12 +14,12 @@ import {CountdownComponent} from '../countdown/countdown.component';
  */
 const inputValuesExpections = (component: DebouncedComponent, expectedValue: string, expectedValueDisplayed: string) => {
 
-  console.log('iEx', component['inputValue'], component['inputValueToDisplay']);
+  console.log('iEx', component.inputValue, component.inputValueToDisplay);
   // inputValue must be still the same
-  expect(component['inputValue']).toEqual(expectedValue);
+  expect(component.inputValue).toEqual(expectedValue);
 
   // Input value must be displayed now
-  expect(component['inputValueToDisplay']).toEqual(expectedValueDisplayed);
+  expect(component.inputValueToDisplay).toEqual(expectedValueDisplayed);
 };
 
 describe('DebouncedComponent', () => {
@@ -63,10 +63,10 @@ describe('DebouncedComponent', () => {
   it('Straight input', () => {
     const testInput = '777';
 
-    component['inputValue'] = testInput;
+    component.inputValue = testInput;
     component.inputValueChanged();
 
-    console.log('inputValue', component['inputValue'], component['inputValueToDisplay']);
+    console.log('inputValue', component.inputValue, component.inputValueToDisplay);
     fixture.detectChanges();
 
     // inputValue must be still the same, not displaying yet
@@ -78,12 +78,12 @@ describe('DebouncedComponent', () => {
 
     inputValuesExpections(component, testInput, EMPTY_STRING);
 
-    console.log('0.5 seconds left', component['inputValue'], component['inputValueToDisplay']);
+    console.log('0.5 seconds left', component.inputValue, component.inputValueToDisplay);
 
     // Wait for 500ms more
     jasmine.clock().tick(500);
     fixture.detectChanges();
-    console.log('1 seconds left', component['inputValue'], component['inputValueToDisplay']);
+    console.log('1 seconds left', component.inputValue, component.inputValueToDisplay);
 
     // inputValue must be still the same
     // Input value must be displayed now
@@ -93,7 +93,7 @@ describe('DebouncedComponent', () => {
     jasmine.clock().tick(2000);
     jasmine.clock().tick(3000);
     fixture.detectChanges();
-    console.log('6 seconds left', component['inputValue'], component['inputValueToDisplay']);
+    console.log('6 seconds left', component.inputValue, component.inputValueToDisplay);
 
     // inputValue must be still the same
     // Not displaying anymore
@@ -106,17 +106,17 @@ describe('DebouncedComponent', () => {
     // Not displaying anymore
     inputValuesExpections(component, EMPTY_STRING, EMPTY_STRING);
 
-    console.log('7 seconds left', component['inputValue'], component['inputValueToDisplay']);
+    console.log('7 seconds left', component.inputValue, component.inputValueToDisplay);
   });
 
   it('Concurrent input', () => {
     const testInput1 = 'first input';
     const testInput2 = 'second input';
 
-    component['inputValue'] = testInput1;
+    component.inputValue = testInput1;
     component.inputValueChanged();
 
-    console.log('inputValue', component['inputValue'], component['inputValueToDisplay']);
+    console.log('inputValue', component.inputValue, component.inputValueToDisplay);
     fixture.detectChanges();
 
     // inputValue must be still the same, not displaying yet
@@ -127,7 +127,7 @@ describe('DebouncedComponent', () => {
 
     // After 4 seconds we mst be on the middle of disappearing process
     // Now, if we change the value, all steps above should be forgotten
-    component['inputValue'] = testInput2;
+    component.inputValue = testInput2;
     component.inputValueChanged();
 
     console.log('2');

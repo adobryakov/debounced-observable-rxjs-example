@@ -33,10 +33,10 @@ export class DebouncedComponent implements OnInit {
   /* Input value properties */
 
   // value bind to the input field
-  private inputValue: string;
+  public inputValue: string;
 
   // Value we display in a tip, if needed
-  private inputValueToDisplay: string;
+  public inputValueToDisplay: string;
 
   constructor() {
     this.inputValue = '';

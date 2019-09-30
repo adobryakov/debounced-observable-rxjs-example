@@ -13,9 +13,9 @@ import {debounceTime, distinctUntilChanged} from 'rxjs/operators';
 export class CountdownComponent implements OnInit, OnDestroy {
 
   @Input()
-  private caption: string;
+  public caption: string;
 
-  private timeLeft: number;
+  public timeLeft: number;
 
   private valueStabled: Subject<number> = new Subject<number>();
 

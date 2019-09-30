@@ -21,16 +21,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'angular-template'`, () => {
+  it(`should have as title 'debounced-observable-rxjs-example'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('angular-template');
+    expect(app.title).toEqual('debounced-observable-rxjs-example');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     // const compiled = fixture.debugElement.nativeElement;
-    // expect(compiled.querySelector('.content span').textContent).toContain('angular-template app is running!');
+    // expect(compiled.querySelector('.content span').textContent).toContain('debounced-observable-rxjs-example app is running!');
   });
 });
