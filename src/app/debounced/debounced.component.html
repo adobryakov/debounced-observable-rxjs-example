@@ -1,0 +1,10 @@
+<h2>Debounced input</h2>
+
+<form>
+  <input #title="ngModel" [(ngModel)]="inputValue" name="title" id="title" type="text" class="form-control" (ngModelChange)='inputValueChanged()' required>
+
+  <p *ngIf="this.inputValueToDisplay">Value is ready for processing: {{this.inputValueToDisplay}}</p>
+
+  <app-countdown caption="Time to stabilize input" #countdownStabilization></app-countdown>
+  <app-countdown caption="Time to process input" #countdownDisappear></app-countdown>
+</form>
